@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneosFutbol.Domain", "TorneosFutbol.Domain\TorneosFutbol.Domain.csproj", "{27D9007B-0762-43A8-A835-67C64C91C782}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorneosFutbol.Domain", "TorneosFutbol.Domain\TorneosFutbol.Domain.csproj", "{27D9007B-0762-43A8-A835-67C64C91C782}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneosFutbol.Infrastructure", "TorneosFutbol.Infrastructure\TorneosFutbol.Infrastructure.csproj", "{4A145834-F98A-4B71-A8B7-727A261ECA46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorneosFutbol.Infrastructure", "TorneosFutbol.Infrastructure\TorneosFutbol.Infrastructure.csproj", "{4A145834-F98A-4B71-A8B7-727A261ECA46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneosFutbol.API", "TorneosFutbol.API\TorneosFutbol.API.csproj", "{4384BBCA-3069-45B6-896E-0E5AB0DFFBCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorneosFutbol.API", "TorneosFutbol.API\TorneosFutbol.API.csproj", "{4384BBCA-3069-45B6-896E-0E5AB0DFFBCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CDE2884C-1DDA-46F8-B423-66E07C563098}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile.txt = Dockerfile.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
