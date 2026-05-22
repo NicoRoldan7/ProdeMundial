@@ -40,11 +40,18 @@ var app = builder.Build();
 var predicciones = new List<TorneosFutbol.Domain.Entities.Prediccion>();
 
 // 2. CONFIGURAR EL PIPELINE DE HTTP
-if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
+// Habilitar Swagger siempre (tanto en desarrollo como en producción en Render)
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Torneos Futbol API v1");
+    c.RoutePrefix = string.Empty; // <-- ESTO ES UN TRUCAZO: Hace que Swagger abra directo en la URL principal sin poner /swagger
+});
 
 app.UseCors();
 
