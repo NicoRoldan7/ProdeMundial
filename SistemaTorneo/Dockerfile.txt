@@ -1,20 +1,19 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+WORKDIR /app
 
-# Copiar los archivos de los proyectos para restaurar dependencias
-COPY TorneosFutbol.API/TorneosFutbol.API.csproj TorneosFutbol.API/
-COPY TorneosFutbol.Infrastructure/TorneosFutbol.Infrastructure.csproj TorneosFutbol.Infrastructure/
-COPY TorneosFutbol.Domain/TorneosFutbol.Domain.csproj TorneosFutbol.Domain/
-RUN dotnet restore TorneosFutbol.API/TorneosFutbol.API.csproj
+# Copiar los archivos .csproj directo (porque ya estamos parados en SistemaTorneo)
+COPY TorneosFutbol.API/TorneosFutbol.API.csproj ./TorneosFutbol.API/
+COPY TorneosFutbol.Infrastructure/TorneosFutbol.Infrastructure.csproj ./TorneosFutbol.Infrastructure/
+COPY TorneosFutbol.Domain/TorneosFutbol.Domain.csproj ./TorneosFutbol.Domain/
+RUN dotnet restore ./TorneosFutbol.API/TorneosFutbol.API.csproj
 
-# Copiar todo el resto del código y compilar
-COPY . .
-WORKDIR /src/TorneosFutbol.API
-RUN dotnet publish TorneosFutbol.API.csproj -c Release -o /app/publish
+# Copiar todo el resto del código
+COPY . ./
+RUN dotnet publish ./TorneosFutbol.API/TorneosFutbol.API.csproj -c Release -o /app/out
 
-# Etapa final: levantar la aplicación armada
+# Etapa final: levantar la aplicación
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
 WORKDIR /app
-COPY --from=build /app/publish .
+COPY --from=build /app/out .
 EXPOSE 80
 ENTRYPOINT ["dotnet", "TorneosFutbol.API.dll"]
