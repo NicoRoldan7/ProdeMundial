@@ -1,0 +1,12 @@
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\bin\Debug\net6.0\TorneosFutbol.Domain.deps.json
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\bin\Debug\net6.0\TorneosFutbol.Domain.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\bin\Debug\net6.0\TorneosFutbol.Domain.pdb
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\TorneosFutbol.Domain.csproj.AssemblyReference.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\TorneosFutbol.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\TorneosFutbol.Domain.AssemblyInfoInputs.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\TorneosFutbol.Domain.AssemblyInfo.cs
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\TorneosFutbol.Domain.csproj.CoreCompileInputs.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\TorneosFutbol.Domain.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\refint\TorneosFutbol.Domain.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\TorneosFutbol.Domain.pdb
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Domain\obj\Debug\net6.0\ref\TorneosFutbol.Domain.dll

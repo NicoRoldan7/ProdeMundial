@@ -1,0 +1,17 @@
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\bin\Debug\net6.0\TorneosFutbol.Infrastructure.deps.json
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\bin\Debug\net6.0\TorneosFutbol.Infrastructure.runtimeconfig.json
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\bin\Debug\net6.0\TorneosFutbol.Infrastructure.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\bin\Debug\net6.0\TorneosFutbol.Infrastructure.pdb
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\bin\Debug\net6.0\TorneosFutbol.Domain.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\bin\Debug\net6.0\TorneosFutbol.Domain.pdb
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.AssemblyInfo.cs
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.csproj.CopyComplete
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\refint\TorneosFutbol.Infrastructure.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.pdb
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\TorneosFutbol.Infrastructure.genruntimeconfig.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.Infrastructure\obj\Debug\net6.0\ref\TorneosFutbol.Infrastructure.dll

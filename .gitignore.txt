@@ -1,0 +1,10 @@
+## .NET Core
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.suo
+
+## Carpetas de frontend que no queramos o configuraciones locales
+.env.local

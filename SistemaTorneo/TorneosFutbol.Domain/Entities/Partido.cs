@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TorneosFutbol.Domain.Entities
+{
+    public class Partido
+    {
+        public Guid Id { get; private set; }
+        public Guid FechaId { get; private set; }
+        public Guid LocalId { get; private set; }
+        public Guid VisitanteId { get; private set; }
+
+        // Usamos tipos anulables (int?) porque al principio el partido no se jugó 
+        // y no sabemos cuántos goles van a meter.
+        public int? GolesLocalReal { get; private set; }
+        public int? GolesVisitanteReal { get; private set; }
+        public bool Finalizado { get; private set; }
+
+        public Partido(Guid fechaId, Guid localId, Guid visitanteId)
+        {
+            if (localId == Guid.Empty || visitanteId == Guid.Empty || fechaId == Guid.Empty)
+                throw new ArgumentException("Los IDs de la fecha y de las selecciones son obligatorios.");
+
+            if (localId == visitanteId)
+                throw new ArgumentException("Una selección no puede jugar contra sí misma.");
+
+            Id = Guid.NewGuid();
+            FechaId = fechaId;
+            LocalId = localId;
+            VisitanteId = visitanteId;
+            Finalizado = false;
+        }
+
+        // Método para cuando termine el partido real. Vos cargás el resultado acá.
+        public void RegistrarResultado(int golesLocal, int golesVisitante)
+        {
+            GolesLocalReal = golesLocal;
+            GolesVisitanteReal = golesVisitante;
+            Finalizado = true;
+        }
+
+        private Partido() { } // Requerido para el ORM
+    }
+}
