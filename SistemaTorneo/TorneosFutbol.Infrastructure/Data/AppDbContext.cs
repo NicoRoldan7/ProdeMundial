@@ -52,12 +52,23 @@ namespace TorneosFutbol.Infrastructure.Data
             });
 
             // 4. Configuración de Partidos
+            // 4. Configuración de Partidos
             modelBuilder.Entity<Partido>(entity =>
             {
-                entity.ToTable("Partidos");
+                // Forzamos el nombre de la tabla idéntico al de Supabase (en minúsculas)
+                entity.ToTable("partidos");
+
                 entity.HasKey(p => p.Id);
-                // No agregamos relaciones complejas de FK acá para mantener la base en memoria 
-                // ultra liviana y simple de manipular desde el código.
+
+                // Mapeamos cada propiedad de C# con su columna real en Postgres
+                entity.Property(p => p.Id).HasColumnName("id");
+                entity.Property(p => p.FechaId).HasColumnName("fecha_id").IsRequired();
+                entity.Property(p => p.LocalId).HasColumnName("local_id").IsRequired();
+                entity.Property(p => p.VisitanteId).HasColumnName("visitante_id").IsRequired();
+
+                entity.Property(p => p.GolesLocalReal).HasColumnName("goles_local_real");
+                entity.Property(p => p.GolesVisitanteReal).HasColumnName("goles_visitante_real");
+                entity.Property(p => p.Finalizado).HasColumnName("finalizado");
             });
 
             // 5. Configuración de Predicciones
