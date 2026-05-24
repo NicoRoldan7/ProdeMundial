@@ -29,7 +29,7 @@ namespace TorneosFutbol.Infrastructure.Data
             // 1. Configuración de Equipos (Mapeo a minúsculas)
             modelBuilder.Entity<Equipo>(entity =>
             {
-                entity.ToTable("equipos");
+                entity.ToTable("Equipos");
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Id).HasColumnName("id");
                 entity.Property(e => e.Nombre).HasColumnName("nombre").IsRequired().HasMaxLength(100);
@@ -48,7 +48,7 @@ namespace TorneosFutbol.Infrastructure.Data
             // 3. Configuración de Fechas
             modelBuilder.Entity<Fecha>(entity =>
             {
-                entity.ToTable("fechas");
+                entity.ToTable("Fechas");
                 entity.HasKey(f => f.Id);
                 entity.Property(f => f.Id).HasColumnName("id");
                 entity.Property(f => f.Nombre).HasColumnName("nombre").IsRequired().HasMaxLength(100);
@@ -71,7 +71,7 @@ namespace TorneosFutbol.Infrastructure.Data
             // 5. Configuración de Predicciones
             modelBuilder.Entity<Prediccion>(entity =>
             {
-                entity.ToTable("predicciones");
+                entity.ToTable("Predicciones");
                 entity.HasKey(pr => pr.Id);
                 entity.Property(pr => pr.Id).HasColumnName("id");
             });
