@@ -55,10 +55,13 @@ namespace TorneosFutbol.Infrastructure.Data
             });
 
             // 4. Configuración de Partidos 
+            // 4. Configuración de Partidos (CALIBRADO AL 100% CON TUS MINÚSCULAS)
             modelBuilder.Entity<Partido>(entity =>
             {
-                entity.ToTable("Partidos"); // Nombre de la tabla con P mayúscula
+                entity.ToTable("partidos"); // <--- ¡AQUÍ! Cambiado a "partidos" con la p MINÚSCULA
                 entity.HasKey(p => p.Id);
+
+                // Todo el resto de las columnas en minúsculas como tu captura:
                 entity.Property(p => p.Id).HasColumnName("id");
                 entity.Property(p => p.FechaId).HasColumnName("fecha_id");
                 entity.Property(p => p.LocalId).HasColumnName("local_id");
