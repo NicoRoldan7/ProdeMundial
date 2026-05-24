@@ -39,7 +39,7 @@ namespace TorneosFutbol.Infrastructure.Data
             // 2. Configuración de Usuarios (¡ACÁ ESTÁ TU JUGADOR!)
             modelBuilder.Entity<Usuario>(entity =>
             {
-                entity.ToTable("usuarios");
+                entity.ToTable("Usuarios");
                 entity.HasKey(u => u.Id);
                 entity.Property(u => u.Id).HasColumnName("id");
                 entity.Property(u => u.Nombre).HasColumnName("nombre").IsRequired().HasMaxLength(50);
