@@ -26,32 +26,36 @@ namespace TorneosFutbol.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // 1. Configuración de Equipos (Ya la teníamos)
+            // 1. Configuración de Equipos (CORREGIDO EN MINÚSCULAS)
             modelBuilder.Entity<Equipo>(entity =>
             {
-                entity.ToTable("Equipos");
+                entity.ToTable("equipos"); // En minúscula 'equipos'
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.Nombre).IsRequired().HasMaxLength(100);
-                entity.Property(e => e.LogoUrl).HasMaxLength(500);
+                entity.Property(e => e.Id).HasColumnName("id"); // <--- CLAVE: id en minúscula
+                entity.Property(e => e.Nombre).HasColumnName("nombre").IsRequired().HasMaxLength(100);
+                entity.Property(e => e.LogoUrl).HasColumnName("logo_url").HasMaxLength(500); // <--- Ojo acá, va con guion bajo
             });
 
-            // 2. Configuración de Usuarios
+            // 2. Configuración de Usuarios (CORREGIDO EN MINÚSCULAS)
             modelBuilder.Entity<Usuario>(entity =>
             {
-                entity.ToTable("Usuarios");
+                entity.ToTable("usuarios"); // En minúscula 'usuarios'
                 entity.HasKey(u => u.Id);
-                entity.Property(u => u.Nombre).IsRequired().HasMaxLength(50);
+                entity.Property(u => u.Id).HasColumnName("id"); // <--- CLAVE: id en minúscula
+                entity.Property(u => u.Nombre).HasColumnName("nombre").IsRequired().HasMaxLength(50);
             });
 
-            // 3. Configuración de Fechas
+            // 3. Configuración de Fechas (CORREGIDO EN MINÚSCULAS)
             modelBuilder.Entity<Fecha>(entity =>
             {
-                entity.ToTable("Fechas");
+                entity.ToTable("fechas"); // En minúscula 'fechas'
                 entity.HasKey(f => f.Id);
-                entity.Property(f => f.Nombre).IsRequired().HasMaxLength(100);
+                entity.Property(f => f.Id).HasColumnName("id"); // <--- CLAVE: id en minúscula
+                entity.Property(f => f.Nombre).HasColumnName("nombre").IsRequired().HasMaxLength(100);
+                // Si tu entidad Fecha tiene la propiedad Orden, agregala acá abajo:
+                // entity.Property(f => f.Orden).HasColumnName("orden");
             });
 
-            // 4. Configuración de Partidos
             // 4. Configuración de Partidos
             modelBuilder.Entity<Partido>(entity =>
             {
