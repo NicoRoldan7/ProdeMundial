@@ -80,7 +80,9 @@ app.MapPost("/api/usuarios", async (CrearUsuarioDTO datos, IUsuarioRepository re
 {
     try
     {
-        var nuevoUsuario = new Usuario(datos.Nombre);
+        // 🚀 Le pasamos las 4 cosas que nos pide el nuevo constructor:
+        var nuevoUsuario = new Usuario(datos.Nombre, datos.Username, datos.Email, datos.Password);
+
         await repo.GuardarAsync(nuevoUsuario);
         return Results.Created($"/api/usuarios/{nuevoUsuario.Id}", nuevoUsuario);
     }
@@ -175,7 +177,7 @@ app.Run();
 
 // DTOs para transferencia de datos limpia desde la web
 public record CrearEquipoDTO(string Nombre, string LogoUrl);
-public record CrearUsuarioDTO(string Nombre);
+public record CrearUsuarioDTO(string Nombre, string Username, string Email, string Password);
 public record CrearFechaDTO(string Nombre, int Orden);
 public record CrearPartidoDTO(Guid FechaId, Guid LocalId, Guid VisitanteId);
 public record RegistrarResultadoDTO(int GolesLocal, int GolesVisitante);
