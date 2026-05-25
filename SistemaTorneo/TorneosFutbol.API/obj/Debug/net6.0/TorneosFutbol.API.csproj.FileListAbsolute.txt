@@ -68,3 +68,4 @@ C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\To
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Npgsql.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\BCrypt-Net-Next.dll

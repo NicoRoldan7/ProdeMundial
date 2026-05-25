@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "PbGz/hSo6JXP8T5dTYqQGQuZMZmZk43oGEJZTfF8MV5adHEIMMx7PKH2rJP1Kl6MkmX1HlRetgnfpr8+qQbi2g==",
+  "dgSpecHash": "s7ROCWQcZa4Hu6ebkxoNw+C1gFzXQAMvJLxnLutR68UtdOZiMxT0+mgGkmyWn3f6n1mRIfLZKh/h+7G+WFiDHA==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicor\\OneDrive\\Escritorio\\SistemaTorneosFutbol\\Backend\\SistemaTorneo\\TorneosFutbol.Infrastructure\\TorneosFutbol.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nicor\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\nicor\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\nicor\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\nicor\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

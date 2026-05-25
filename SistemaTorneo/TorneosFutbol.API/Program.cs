@@ -72,6 +72,50 @@ app.MapPost("/api/equipos", async (CrearEquipoDTO datos, IEquipoRepository repo)
 #endregion
 
 #region USUARIOS
+
+// POST: Login de usuarios
+app.MapPost("/api/usuarios/login", async (LoginDTO datos, IUsuarioRepository repo) =>
+{
+    try
+    {
+        // 1. Buscamos todos los usuarios para filtrar (o si tenés un método en tu repo que busque por username/email usás ese)
+        var usuarios = await repo.ObtenerTodosAsync();
+
+        // Buscamos coincidencia ignorando mayúsculas/minúsculas tal cual tu consulta de Supabase
+        var usuarioExistente = usuarios.FirstOrDefault(u =>
+            u.Username.Equals(datos.InputUsuario, StringComparison.OrdinalIgnoreCase) ||
+            u.Email.Equals(datos.InputUsuario, StringComparison.OrdinalIgnoreCase));
+
+        // 2. Si no existe el usuario, rebotamos
+        if (usuarioExistente == null)
+        {
+            return Results.BadRequest("Usuario o contraseña incorrectos.");
+        }
+
+        // 3. 🔥 VERIFICAMOS LA CONTRASEÑA CON BCRYPT
+        // Compara la clave en texto plano del frontend con el Hash seguro de la base de datos
+        bool esValida = BCrypt.Net.BCrypt.Verify(datos.Password, usuarioExistente.PasswordHash);
+
+        if (!esValida)
+        {
+            return Results.BadRequest("Usuario o contraseña incorrectos.");
+        }
+
+        // 4. Si todo está ok, le devolvemos los datos del usuario (menos el Hash por seguridad)
+        return Results.Ok(new
+        {
+            id = usuarioExistente.Id,
+            nombre = usuarioExistente.Nombre,
+            username = usuarioExistente.Username,
+            email = usuarioExistente.Email
+        });
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem("Hubo un error al procesar el ingreso: " + ex.Message);
+    }
+});
+
 // Traer los competidores (Vos y tu amigo)
 app.MapGet("/api/usuarios", async (IUsuarioRepository repo) => Results.Ok(await repo.ObtenerTodosAsync()));
 
@@ -80,8 +124,9 @@ app.MapPost("/api/usuarios", async (CrearUsuarioDTO datos, IUsuarioRepository re
 {
     try
     {
+        string contraseñaEncriptada = BCrypt.Net.BCrypt.HashPassword(datos.Password);
         // 🚀 Le pasamos las 4 cosas que nos pide el nuevo constructor:
-        var nuevoUsuario = new Usuario(datos.Nombre, datos.Username, datos.Email, datos.Password);
+        var nuevoUsuario = new Usuario(datos.Nombre, datos.Username, datos.Email, contraseñaEncriptada);
 
         await repo.GuardarAsync(nuevoUsuario);
         return Results.Created($"/api/usuarios/{nuevoUsuario.Id}", nuevoUsuario);
@@ -181,5 +226,5 @@ public record CrearUsuarioDTO(string Nombre, string Username, string Email, stri
 public record CrearFechaDTO(string Nombre, int Orden);
 public record CrearPartidoDTO(Guid FechaId, Guid LocalId, Guid VisitanteId);
 public record RegistrarResultadoDTO(int GolesLocal, int GolesVisitante);
-
 public record GuardarPrediccionDTO(Guid UsuarioId, Guid PartidoId, int GolesLocalVoto, int GolesVisitanteVoto);
+public record LoginDTO(string InputUsuario, string Password); // InputUsuario puede ser el Email o el Username
