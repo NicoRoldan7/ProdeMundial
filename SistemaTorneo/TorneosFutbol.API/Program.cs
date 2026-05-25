@@ -73,6 +73,44 @@ app.MapPost("/api/equipos", async (CrearEquipoDTO datos, IEquipoRepository repo)
 
 #region USUARIOS
 
+// POST: Login / Registro con Google
+app.MapPost("/api/usuarios/google", async ([FromBody] GuardarGoogleUserDTO datos, IUsuarioRepository repo) =>
+{
+    try
+    {
+        // 1. Buscamos todos los usuarios para ver si el correo de Google ya existe
+        var usuarios = await repo.ObtenerTodosAsync();
+        var usuarioExistente = usuarios.FirstOrDefault(u =>
+            u.Email.Equals(datos.Email, StringComparison.OrdinalIgnoreCase));
+
+        // 2. Si el usuario NO existe, lo registramos automáticamente de forma silenciosa
+        if (usuarioExistente == null)
+        {
+            // Creamos un username único basado en su mail o nombre
+            string usernameAutomatico = datos.Email.Split('@')[0] + "_" + Guid.NewGuid().ToString().Substring(0, 4);
+
+            // Le ponemos una contraseña aleatoria y segura por defecto (ya que entra por Google)
+            string passwordSegura = BCrypt.Net.BCrypt.HashPassword(Guid.NewGuid().ToString());
+
+            usuarioExistente = new Usuario(datos.Nombre, usernameAutomatico, datos.Email, passwordSegura);
+            await repo.GuardarAsync(usuarioExistente);
+        }
+
+        // 3. Devolvemos los datos del usuario logueado exitosamente
+        return Results.Ok(new
+        {
+            id = usuarioExistente.Id,
+            nombre = usuarioExistente.Nombre,
+            username = usuarioExistente.Username,
+            email = usuarioExistente.Email
+        });
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem("Hubo un error al sincronizar con Google: " + ex.Message);
+    }
+});
+
 // POST: Login de usuarios
 app.MapPost("/api/usuarios/login", async (LoginDTO datos, IUsuarioRepository repo) =>
 {
@@ -228,3 +266,4 @@ public record CrearPartidoDTO(Guid FechaId, Guid LocalId, Guid VisitanteId);
 public record RegistrarResultadoDTO(int GolesLocal, int GolesVisitante);
 public record GuardarPrediccionDTO(Guid UsuarioId, Guid PartidoId, int GolesLocalVoto, int GolesVisitanteVoto);
 public record LoginDTO(string InputUsuario, string Password); // InputUsuario puede ser el Email o el Username
+public record GuardarGoogleUserDTO(string Nombre, string Email);
