@@ -13,20 +13,19 @@ namespace TorneosFutbol.Domain.Entities
         public Guid Id { get; private set; }
         public string Nombre { get; private set; }
         public string LogoUrl { get; private set; }
+        public string Grupo { get; private set; } // Agregado
 
         // Este es el constructor. Obligamos a que cualquier persona que cree un equipo
         // nos pase sí o sí un nombre y una foto.
-        public Equipo(string nombre, string logoUrl)
+        public Equipo(string nombre, string logoUrl, string grupo) // Agregado el parámetro
         {
-            // Regla de negocio básica: Un equipo no puede no tener nombre.
             if (string.IsNullOrWhiteSpace(nombre))
-            {
                 throw new ArgumentException("El nombre del equipo es obligatorio.");
-            }
 
-            Id = Guid.NewGuid(); // Generamos el ID único automáticamente al crearlo
+            Id = Guid.NewGuid();
             Nombre = nombre;
             LogoUrl = string.IsNullOrWhiteSpace(logoUrl) ? "url_por_defecto.png" : logoUrl;
+            Grupo = grupo; // Asignado
         }
 
         // Este constructor vacío y privado lo dejamos acá porque más adelante

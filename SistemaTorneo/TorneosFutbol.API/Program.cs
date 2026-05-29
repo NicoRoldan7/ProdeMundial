@@ -63,7 +63,7 @@ app.MapPost("/api/equipos", async (CrearEquipoDTO datos, IEquipoRepository repo)
 {
     try
     {
-        var nuevoEquipo = new Equipo(datos.Nombre, datos.LogoUrl);
+        var nuevoEquipo = new Equipo(datos.Nombre, datos.LogoUrl, datos.Grupo);
         await repo.GuardarAsync(nuevoEquipo);
         return Results.Created($"/api/equipos/{nuevoEquipo.Id}", nuevoEquipo);
     }
@@ -259,7 +259,7 @@ app.MapGet("/api/predicciones", ([FromQuery] Guid? uId) =>
 app.Run();
 
 // DTOs para transferencia de datos limpia desde la web
-public record CrearEquipoDTO(string Nombre, string LogoUrl);
+public record CrearEquipoDTO(string Nombre, string LogoUrl, string Grupo);
 public record CrearUsuarioDTO(string Nombre, string Username, string Email, string Password);
 public record CrearFechaDTO(string Nombre, int Orden);
 public record CrearPartidoDTO(Guid FechaId, Guid LocalId, Guid VisitanteId);

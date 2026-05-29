@@ -1,3 +1,10 @@
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.csproj.AssemblyReference.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.AssemblyInfoInputs.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.AssemblyInfo.cs
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.csproj.CoreCompileInputs.cache
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\appsettings.json
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\TorneosFutbol.API.exe
@@ -5,6 +12,7 @@ C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\To
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\TorneosFutbol.API.runtimeconfig.json
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\TorneosFutbol.API.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\TorneosFutbol.API.pdb
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\BCrypt-Net-Next.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Humanizer.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -13,6 +21,8 @@ C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\To
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
@@ -21,10 +31,13 @@ C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\To
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Npgsql.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\System.Runtime.Caching.dll
@@ -47,13 +60,6 @@ C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\To
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\TorneosFutbol.Infrastructure.dll
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\TorneosFutbol.Infrastructure.pdb
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\TorneosFutbol.Domain.pdb
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.csproj.AssemblyReference.cache
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.AssemblyInfoInputs.cache
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.AssemblyInfo.cs
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.csproj.CoreCompileInputs.cache
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\scopedcss\bundle\TorneosFutbol.API.styles.css
@@ -63,9 +69,3 @@ C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\To
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.pdb
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\TorneosFutbol.API.genruntimeconfig.cache
 C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\obj\Debug\net6.0\ref\TorneosFutbol.API.dll
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Npgsql.dll
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\nicor\OneDrive\Escritorio\SistemaTorneosFutbol\Backend\SistemaTorneo\TorneosFutbol.API\bin\Debug\net6.0\BCrypt-Net-Next.dll
