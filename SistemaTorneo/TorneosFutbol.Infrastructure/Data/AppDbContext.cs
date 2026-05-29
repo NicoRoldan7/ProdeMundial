@@ -43,6 +43,7 @@ namespace TorneosFutbol.Infrastructure.Data
                 entity.Property(e => e.Id).HasColumnName("id"); // Acá va en minúscula
                 entity.Property(e => e.Nombre).HasColumnName("nombre").IsRequired().HasMaxLength(100); // Minúscula
                 entity.Property(e => e.LogoUrl).HasColumnName("logo_url").HasMaxLength(500); // Minúscula
+                entity.Property(e => e.Grupo).HasColumnName("grupo").HasMaxLength(500); // Minúscula
             });
 
             // 3. Configuración de Fechas (Mapeado EXACTO a tu captura: "id", "nombre")
