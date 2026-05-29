@@ -9,7 +9,6 @@ namespace TorneosFutbol.Domain.Entities
     public class Equipo
     {
         // Usamos Guid (un identificador único global) en lugar de un simple número 1, 2, 3. 
-        // Esto es un estándar moderno en sistemas de alta escala.
         public Guid Id { get; private set; }
         public string Nombre { get; private set; }
         public string LogoUrl { get; private set; }
