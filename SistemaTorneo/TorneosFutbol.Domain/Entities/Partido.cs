@@ -16,8 +16,8 @@ namespace TorneosFutbol.Domain.Entities
         public int? GolesLocalReal { get; private set; }
         public int? GolesVisitanteReal { get; private set; }
         public bool Finalizado { get; private set; }
-        public string Fecha { get; private set; }
-        public string Hora { get; private set; }
+        public string? Fecha { get; private set; }
+        public string? Hora { get; private set; }
 
         public Partido(Guid fechaId, Guid localId, Guid visitanteId, string fecha, string hora)
         {
