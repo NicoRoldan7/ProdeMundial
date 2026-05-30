@@ -199,7 +199,7 @@ app.MapPost("/api/partidos", async (CrearPartidoDTO datos, IPartidoRepository re
 {
     try
     {
-        var nuevoPartido = new Partido(datos.FechaId, datos.LocalId, datos.VisitanteId);
+        var nuevoPartido = new Partido(datos.FechaId, datos.LocalId, datos.VisitanteId, datos.Fecha, datos.Hora);
         await repo.GuardarAsync(nuevoPartido);
         return Results.Created($"/api/partidos/{nuevoPartido.Id}", nuevoPartido);
     }
@@ -262,7 +262,7 @@ app.Run();
 public record CrearEquipoDTO(string Nombre, string LogoUrl, string Grupo);
 public record CrearUsuarioDTO(string Nombre, string Username, string Email, string Password);
 public record CrearFechaDTO(string Nombre, int Orden);
-public record CrearPartidoDTO(Guid FechaId, Guid LocalId, Guid VisitanteId);
+public record CrearPartidoDTO(Guid FechaId, Guid LocalId, Guid VisitanteId, string Fecha, string Hora);
 public record RegistrarResultadoDTO(int GolesLocal, int GolesVisitante);
 public record GuardarPrediccionDTO(Guid UsuarioId, Guid PartidoId, int GolesLocalVoto, int GolesVisitanteVoto);
 public record LoginDTO(string InputUsuario, string Password); // InputUsuario puede ser el Email o el Username

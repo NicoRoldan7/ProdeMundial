@@ -13,13 +13,13 @@ namespace TorneosFutbol.Domain.Entities
         public Guid LocalId { get; private set; }
         public Guid VisitanteId { get; private set; }
 
-        // Usamos tipos anulables (int?) porque al principio el partido no se jugó 
-        // y no sabemos cuántos goles van a meter.
         public int? GolesLocalReal { get; private set; }
         public int? GolesVisitanteReal { get; private set; }
         public bool Finalizado { get; private set; }
+        public string Fecha { get; private set; }
+        public string Hora { get; private set; }
 
-        public Partido(Guid fechaId, Guid localId, Guid visitanteId)
+        public Partido(Guid fechaId, Guid localId, Guid visitanteId, string Fecha, string Hora)
         {
             if (localId == Guid.Empty || visitanteId == Guid.Empty || fechaId == Guid.Empty)
                 throw new ArgumentException("Los IDs de la fecha y de las selecciones son obligatorios.");
@@ -32,6 +32,8 @@ namespace TorneosFutbol.Domain.Entities
             LocalId = localId;
             VisitanteId = visitanteId;
             Finalizado = false;
+            Fecha = Fecha;
+            Hora = Hora;
         }
 
         // Método para cuando termine el partido real. Vos cargás el resultado acá.

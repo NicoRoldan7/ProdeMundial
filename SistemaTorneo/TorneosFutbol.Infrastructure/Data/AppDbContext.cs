@@ -70,6 +70,8 @@ namespace TorneosFutbol.Infrastructure.Data
                 entity.Property(p => p.GolesLocalReal).HasColumnName("goles_local_real");
                 entity.Property(p => p.GolesVisitanteReal).HasColumnName("goles_visitante_real");
                 entity.Property(p => p.Finalizado).HasColumnName("finalizado");
+                entity.Property(p => p.Fecha).HasColumnName("fecha");
+                entity.Property(p => p.Hora).HasColumnName("hora");
             });
 
             // 5. Configuración de Predicciones (Mapeado EXACTO a tu captura de Predicciones)
