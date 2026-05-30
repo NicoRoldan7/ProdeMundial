@@ -8,10 +8,6 @@ using TorneosFutbol.Domain.Entities;
 using TorneosFutbol.Domain.Ports.Out;
 using TorneosFutbol.Infrastructure.Data;
 
-using Microsoft.EntityFrameworkCore;
-using TorneosFutbol.Domain.Entities;
-using TorneosFutbol.Domain.Ports.Out; // Tu carpeta de puertos de salida
-
 namespace TorneosFutbol.Infrastructure.Repositories
 {
     public class PartidoRepository : IPartidoRepository

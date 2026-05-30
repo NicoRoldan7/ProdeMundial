@@ -19,7 +19,7 @@ namespace TorneosFutbol.Domain.Entities
         public string Fecha { get; private set; }
         public string Hora { get; private set; }
 
-        public Partido(Guid fechaId, Guid localId, Guid visitanteId, string Fecha, string Hora)
+        public Partido(Guid fechaId, Guid localId, Guid visitanteId, string fecha, string hora)
         {
             if (localId == Guid.Empty || visitanteId == Guid.Empty || fechaId == Guid.Empty)
                 throw new ArgumentException("Los IDs de la fecha y de las selecciones son obligatorios.");
@@ -32,8 +32,8 @@ namespace TorneosFutbol.Domain.Entities
             LocalId = localId;
             VisitanteId = visitanteId;
             Finalizado = false;
-            Fecha = Fecha;
-            Hora = Hora;
+            Fecha = fecha;
+            Hora = hora;
         }
 
         // Método para cuando termine el partido real. Vos cargás el resultado acá.
