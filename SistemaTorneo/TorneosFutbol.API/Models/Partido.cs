@@ -11,5 +11,6 @@ public class Partido
     public int? GolesLocalReal { get; set; }
     public int? GolesVisitanteReal { get; set; }
 
-    public DateTime FechaPartido { get; set; }
+    public string Fecha { get; set; } // Ejemplo: "11/06"
+    public string Hora { get; set; }  // Ejemplo: "15:00"
 }

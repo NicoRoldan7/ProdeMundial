@@ -39,12 +39,6 @@ var app = builder.Build();
 
 var predicciones = new List<TorneosFutbol.Domain.Entities.Prediccion>();
 
-// 2. CONFIGURAR EL PIPELINE DE HTTP
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
 // Habilitar Swagger siempre (tanto en desarrollo como en producción en Render)
 app.UseSwagger();
 app.UseSwaggerUI(c =>
