@@ -220,15 +220,18 @@ app.MapPost("/api/partidos/{id}/resultado", async (Guid id, RegistrarResultadoDT
 // ==========================================
 
 // POST: Guardar o actualizar
-app.MapPost("/api/predicciones", (Prediccion datos) =>
+app.MapPost("/api/predicciones", (GuardarPrediccionDTO datos) =>
 {
     try
     {
         // 1. Borramos si ya existía un voto del mismo usuario para el mismo partido
-        predicciones.RemoveAll(p => p.UsuarioId == datos.UsuarioId && p.PartidoId == datos.PartidoId);
+        predicciones.RemoveAll(p => p.UsuarioId == datos.UsuarioId && p.PartidoId == datos.PartidoId && p.TorneoId == datos.TorneoId);
 
         // 2. Creamos la nueva predicción usando la entidad limpia de tu Dominio
         var nuevaPrediccion = new TorneosFutbol.Domain.Entities.Prediccion(datos.UsuarioId, datos.PartidoId, datos.GolesLocalVoto,datos.GolesVisitanteVoto);
+
+        nuevaPrediccion.TorneoId = datos.TorneoId;
+
         predicciones.Add(nuevaPrediccion);
 
         return Results.Ok(new { mensaje = "¡Pronóstico guardado exitosamente!", id = nuevaPrediccion.Id });
@@ -239,15 +242,138 @@ app.MapPost("/api/predicciones", (Prediccion datos) =>
     }
 });
 
-// GET: Listar (Cambiamos el filtro a un formato plano que Swagger ama)
-app.MapGet("/api/predicciones", ([FromQuery] Guid? uId) =>
+
+app.MapPost("/api/torneos", async (CrearTorneoDTO datos, AppDbContext db) =>
 {
+    try
+    {
+        // IMPRIMÍ EN CONSOLA PARA VER QUÉ ESTÁ PASANDO
+        Console.WriteLine($"RECIBIDO CREATORID: {datos.CreadorId}");
+
+        var usuarioExiste = await db.Usuarios.AnyAsync(u => u.Id == datos.CreadorId);
+
+        if (!usuarioExiste)
+        {
+            // Esto te dirá si el ID que llega es realmente el que crees
+            return Results.BadRequest(new
+            {
+                error = "Usuario no encontrado",
+                receivedId = datos.CreadorId
+            });
+        }
+
+        var nuevoTorneo = new Torneo
+        {
+            Id = Guid.NewGuid(),
+            NombreTorneo = datos.NombreTorneo,
+            CreadorId = datos.CreadorId,
+            CreatedAt = DateTime.UtcNow,
+            TokenAcceso = Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper()
+        };
+
+        db.Torneos.Add(nuevoTorneo);
+        await db.SaveChangesAsync();
+
+        return Results.Ok(nuevoTorneo);
+    }
+    catch (Exception ex)
+    {
+        var error = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+        return Results.BadRequest(new { error = error });
+    }
+});
+
+app.MapPost("/api/torneos/unirse/{token}", (string token, Guid usuarioId, AppDbContext db) =>
+{
+    // 1. Buscamos el torneo usando el token (asegúrate de que TokenAcceso exista en tu entidad Torneo)
+    var torneo = db.Torneos.FirstOrDefault(t => t.TokenAcceso == token);
+
+    if (torneo == null)
+    {
+        return Results.NotFound(new { mensaje = "Torneo no encontrado." });
+    }
+
+    // 2. Verificamos si ya existe la relación para evitar errores de clave duplicada
+    bool yaEstaUnido = db.Set<TorneoParticipante>().Any(tp =>
+        tp.TorneoId == torneo.Id &&
+        tp.UsuarioId == usuarioId);
+
+    if (yaEstaUnido)
+    {
+        return Results.BadRequest(new { mensaje = "Ya sos parte de este torneo." });
+    }
+
+    // 3. Creamos la relación
+    var nuevoParticipante = new TorneoParticipante(torneo.Id, usuarioId);
+
+    db.Set<TorneoParticipante>().Add(nuevoParticipante);
+
+    // 4. Guardamos cambios
+    db.SaveChanges(); // O SaveChangesAsync()
+
+    return Results.Ok(new { mensaje = $"¡Te uniste al torneo {torneo.NombreTorneo} exitosamente!" });
+});
+
+app.MapGet("/api/predicciones", ([FromQuery] Guid? uId, [FromQuery] Guid? torneoId, AppDbContext db) =>
+{
+    // Empezamos con la consulta base a la tabla de Predicciones
+    var query = db.Predicciones.AsQueryable();
+
+    // Filtramos por Usuario si nos lo pasan
     if (uId.HasValue)
     {
-        var filtradas = predicciones.Where(p => p.UsuarioId == uId.Value).ToList();
-        return Results.Ok(filtradas);
+        query = query.Where(p => p.UsuarioId == uId.Value);
     }
-    return Results.Ok(predicciones);
+
+    // FILTRO CRÍTICO: Filtramos por el TorneoId
+    // Si torneoId es NULL, asumimos que son las predicciones globales (o las que no pertenecen a torneos)
+    // Si nos pasan un torneoId, traemos solo las de ese torneo
+    query = query.Where(p => p.TorneoId == torneoId);
+
+    return Results.Ok(query.ToList());
+});
+
+app.MapGet("/api/torneos/{torneoId}/posiciones", (Guid torneoId, AppDbContext db) =>
+{
+    var posiciones = db.Predicciones
+        .Where(p => p.TorneoId == torneoId)
+        .GroupBy(p => p.UsuarioId)
+        .Select(g => new
+        {
+            UsuarioId = g.Key,
+            // Traemos el nombre del usuario buscando en la tabla Usuarios
+            NombreUsuario = db.Usuarios
+                .Where(u => u.Id == g.Key)
+                .Select(u => u.Nombre)
+                .FirstOrDefault(),
+            TotalPuntos = g.Sum(p => p.PuntosGanados)
+        })
+        .OrderByDescending(p => p.TotalPuntos)
+        .ToList();
+
+    return Results.Ok(posiciones);
+});
+
+app.MapPost("/api/partidos/{partidoId}/resultado", async (Guid partidoId, RegistrarResultadoDTO resultado, AppDbContext db) =>
+{
+    var partido = await db.Partidos.FindAsync(partidoId);
+    if (partido == null) return Results.NotFound("Partido no encontrado.");
+
+    // 1. Actualizamos el resultado real
+    partido.RegistrarResultado(resultado.GolesLocal, resultado.GolesVisitante);
+
+    // 2. Buscamos todas las predicciones de este partido
+    var predicciones = db.Predicciones.Where(p => p.PartidoId == partidoId).ToList();
+
+    // 3. Calculamos puntos para cada una
+    foreach (var pred in predicciones)
+    {
+        pred.CalcularPuntos(partido); // ¡Acá reutilizamos tu lógica de dominio!
+    }
+
+    await db.SaveChangesAsync();
+
+    return Results.Ok(new { mensaje = "Resultado cargado y puntos recalculados." });
 });
 
 app.Run();
@@ -258,6 +384,7 @@ public record CrearUsuarioDTO(string Nombre, string Username, string Email, stri
 public record CrearFechaDTO(string Nombre, int Orden);
 public record CrearPartidoDTO(Guid FechaId, Guid LocalId, Guid VisitanteId, string Fecha, string Hora);
 public record RegistrarResultadoDTO(int GolesLocal, int GolesVisitante);
-public record GuardarPrediccionDTO(Guid UsuarioId, Guid PartidoId, int GolesLocalVoto, int GolesVisitanteVoto);
+public record GuardarPrediccionDTO(Guid UsuarioId, Guid PartidoId, int GolesLocalVoto, int GolesVisitanteVoto, Guid? TorneoId);
 public record LoginDTO(string InputUsuario, string Password); // InputUsuario puede ser el Email o el Username
 public record GuardarGoogleUserDTO(string Nombre, string Email);
+public record CrearTorneoDTO(string NombreTorneo, Guid CreadorId);

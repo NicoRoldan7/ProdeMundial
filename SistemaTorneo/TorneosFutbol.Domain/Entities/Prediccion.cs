@@ -14,6 +14,7 @@ namespace TorneosFutbol.Domain.Entities
         public int GolesLocalPrediccion { get; private set; }
         public int GolesVisitantePrediccion { get; private set; }
         public int PuntosGanados { get; private set; }
+        public Guid? TorneoId { get; set; }
 
         public Prediccion(Guid usuarioId, Guid partidoId, int golesLocal, int golesVisitante)
         {

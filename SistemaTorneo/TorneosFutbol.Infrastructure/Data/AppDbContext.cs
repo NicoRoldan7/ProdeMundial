@@ -21,6 +21,8 @@ namespace TorneosFutbol.Infrastructure.Data
         public DbSet<Fecha> Fechas { get; set; }
         public DbSet<Partido> Partidos { get; set; }
         public DbSet<Prediccion> Predicciones { get; set; }
+        public DbSet<Torneo> Torneos { get; set; }
+        public DbSet<TorneoParticipante> TorneoParticipantes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -85,6 +87,27 @@ namespace TorneosFutbol.Infrastructure.Data
                 entity.Property(pr => pr.GolesLocalPrediccion).HasColumnName("GolesLocalPrediccion");
                 entity.Property(pr => pr.GolesVisitantePrediccion).HasColumnName("GolesVisitantePrediccion");
                 entity.Property(pr => pr.PuntosGanados).HasColumnName("PuntosGanados");
+                entity.Property(pr => pr.TorneoId).HasColumnName("torneo_id");
+            });
+
+            modelBuilder.Entity<TorneoParticipante>(entity =>
+            {
+                entity.ToTable("torneo_participantes"); // Nombre real en la BD
+                entity.HasKey(tp => new { tp.TorneoId, tp.UsuarioId }); // Clave compuesta
+
+                // Mapeo a los nombres de columna en tu Supabase
+                entity.Property(tp => tp.TorneoId).HasColumnName("torneo_id");
+                entity.Property(tp => tp.UsuarioId).HasColumnName("usuario_id");
+                entity.Property(tp => tp.Rol).HasColumnName("rol");
+            });
+            modelBuilder.Entity<Torneo>(entity =>
+            {
+                entity.ToTable("torneos"); // Nombre de la tabla en minúsculas
+                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.NombreTorneo).HasColumnName("nombre_torneo");
+                entity.Property(e => e.CreadorId).HasColumnName("creador_id");
+                entity.Property(e => e.TokenAcceso).HasColumnName("token_acceso");
+                entity.Property(e => e.CreatedAt).HasColumnName("created_at");
             });
         }
     }
